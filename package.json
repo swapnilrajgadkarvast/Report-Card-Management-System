@@ -47,6 +47,8 @@
     "@feathersjs/adapter-commons": "^5.0.5",
     "@feathersjs/authentication": "^5.0.5",
     "@feathersjs/authentication-client": "^5.0.5",
+    "@feathersjs/authentication-local": "^5.0.5",
+    "@feathersjs/authentication-oauth": "^5.0.5",
     "@feathersjs/configuration": "^5.0.5",
     "@feathersjs/errors": "^5.0.5",
     "@feathersjs/express": "^5.0.5",
@@ -55,8 +57,12 @@
     "@feathersjs/schema": "^5.0.5",
     "@feathersjs/socketio": "^5.0.5",
     "@feathersjs/transport-commons": "^5.0.5",
+    "bcrypt": "^5.1.0",
     "compression": "^1.7.4",
+    "feathers-validate-joi": "^4.0.1",
+    "joi": "^17.9.2",
     "mongodb": "^5.2.0",
+    "nodemailer": "^6.9.2",
     "winston": "^3.8.2"
   },
   "devDependencies": {
