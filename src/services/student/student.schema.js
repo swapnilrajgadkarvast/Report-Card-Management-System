@@ -8,16 +8,31 @@ export const studentSchema = {
   $id: 'Student',
   type: 'object',
   additionalProperties: false,
-  required: ['_id', 'studentName', 'birthDate', 'parentName', 'parentEmail', 'parentContact', 'rollNumber', 'address'],
+  required: [
+    '_id',
+    'firstName',
+    'middleName',
+    'lastName',
+    'standard',
+    'division',
+    'rollNumber',
+    'year',
+    'dateOfBirth',
+    'parent',
+    'isActive'
+  ],
   properties: {
     _id: ObjectIdSchema(),
-    studentName: { type: 'string' },
-    birthDate: { type: 'string', format: 'date' },
-    parentName: { type: 'string' },
-    parentEmail: { type: 'string' },
-    parentContact: { type: 'string' },
+    firstName: { type: 'string' },
+    middleName: { type: 'string' },
+    lastName: { type: 'string' },
+    standard: { type: 'string' },
+    division: { type: 'string' },
     rollNumber: { type: 'string' },
-    address: { type: 'string' }
+    year: { type: 'number' },
+    dateOfBirth: { type: 'string', format: 'date' },
+    parent: { type: 'object' },
+    isActive: { type: 'boolean' }
   }
 }
 export const studentValidator = getValidator(studentSchema, dataValidator)
@@ -30,7 +45,18 @@ export const studentDataSchema = {
   $id: 'StudentData',
   type: 'object',
   additionalProperties: false,
-  required: [ 'studentName', 'birthDate', 'parentName', 'parentEmail', 'parentContact', 'rollNumber', 'address'],
+  required: [
+    'firstName',
+    'middleName',
+    'lastName',
+    'standard',
+    'division',
+    'rollNumber',
+    'year',
+    'dateOfBirth',
+    'parent',
+    'isActive'
+  ],
   properties: {
     ...studentSchema.properties
   }

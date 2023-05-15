@@ -1,6 +1,12 @@
 // For more information about this file see https://dove.feathersjs.com/guides/cli/client.html
 import { feathers } from '@feathersjs/feathers'
 import authenticationClient from '@feathersjs/authentication-client'
+import { studentTestResultClient } from './services/student-test-result/student-test-result.shared.js'
+
+import { testsClient } from './services/tests/tests.shared.js'
+
+import { standardClient } from './services/standard/standard.shared.js'
+
 import { studentClient } from './services/student/student.shared.js'
 
 /**
@@ -19,6 +25,12 @@ export const createClient = (connection, authenticationOptions = {}) => {
   client.set('connection', connection)
 
   client.configure(studentClient)
+
+  client.configure(standardClient)
+
+  client.configure(testsClient)
+
+  client.configure(studentTestResultClient)
 
   return client
 }
