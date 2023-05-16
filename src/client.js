@@ -1,17 +1,17 @@
 // For more information about this file see https://dove.feathersjs.com/guides/cli/client.html
 import { feathers } from '@feathersjs/feathers'
 import authenticationClient from '@feathersjs/authentication-client'
-import { reportClient } from './services/report/report.shared.js'
+import { subjectsClient } from './services/subjects/subjects.shared.js'
+
+import { userrolesClient } from './services/userroles/userroles.shared.js'
 
 import { gradesClient } from './services/grades/grades.shared.js'
 
-import { studentTestResultClient } from './services/student-test-result/student-test-result.shared.js'
+import { rolesClient } from './services/roles/roles.shared.js'
 
-import { testsClient } from './services/tests/tests.shared.js'
+import { divisionClient } from './services/division/division.shared.js'
 
 import { standardClient } from './services/standard/standard.shared.js'
-
-import { studentClient } from './services/student/student.shared.js'
 
 /**
  * Returns a  client for the report_card_management_system app.
@@ -28,17 +28,17 @@ export const createClient = (connection, authenticationOptions = {}) => {
   client.configure(authenticationClient(authenticationOptions))
   client.set('connection', connection)
 
-  client.configure(studentClient)
-
   client.configure(standardClient)
 
-  client.configure(testsClient)
+  client.configure(divisionClient)
 
-  client.configure(studentTestResultClient)
+  client.configure(rolesClient)
 
   client.configure(gradesClient)
 
-  client.configure(reportClient)
+  client.configure(userrolesClient)
+
+  client.configure(subjectsClient)
 
   return client
 }

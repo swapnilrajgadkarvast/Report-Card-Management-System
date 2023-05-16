@@ -8,7 +8,7 @@ export const gradesSchema = {
   $id: 'Grades',
   type: 'object',
   additionalProperties: false,
-  required: ['_id', 'name', 'start', 'end'],
+  required: ['_id', 'name','start','end'],
   properties: {
     _id: ObjectIdSchema(),
     name: { type: 'string' },
@@ -26,7 +26,7 @@ export const gradesDataSchema = {
   $id: 'GradesData',
   type: 'object',
   additionalProperties: false,
-  required: ['name', 'start', 'end'],
+  required: ['name','start','end'],
   properties: {
     ...gradesSchema.properties
   }

@@ -2,16 +2,16 @@
 import { resolve, getValidator, querySyntax } from '@feathersjs/schema'
 import { ObjectIdSchema } from '@feathersjs/schema'
 import { dataValidator, queryValidator } from '../../validators.js'
-
+import { standardJoiSchema } from './standard.joimodel.js'
 // Main data model schema
 export const standardSchema = {
   $id: 'Standard',
   type: 'object',
   additionalProperties: false,
-  required: ['_id', 'standard'],
+  required: ['_id', 'name'],
   properties: {
     _id: ObjectIdSchema(),
-    standard: { type: 'string' }
+    name: { type: 'string' }
   }
 }
 export const standardValidator = getValidator(standardSchema, dataValidator)
@@ -24,7 +24,7 @@ export const standardDataSchema = {
   $id: 'StandardData',
   type: 'object',
   additionalProperties: false,
-  required: ['text'],
+  required: ['name'],
   properties: {
     ...standardSchema.properties
   }
@@ -37,7 +37,7 @@ export const standardPatchSchema = {
   $id: 'StandardPatch',
   type: 'object',
   additionalProperties: false,
-  required: [],
+  required: ['name'],
   properties: {
     ...standardSchema.properties
   }

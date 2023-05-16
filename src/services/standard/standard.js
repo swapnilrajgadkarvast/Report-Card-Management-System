@@ -1,6 +1,7 @@
 // For more information about this file see https://dove.feathersjs.com/guides/cli/service.html
 import { authenticate } from '@feathersjs/authentication'
-
+import validate from 'feathers-validate-joi'
+import { standardJoiSchema } from './standard.joimodel.js'
 import { hooks as schemaHooks } from '@feathersjs/schema'
 import {
   standardDataValidator,
@@ -31,7 +32,7 @@ export const standard = (app) => {
   app.service(standardPath).hooks({
     around: {
       all: [
-        authenticate('jwt'),
+       // authenticate('jwt'),
         schemaHooks.resolveExternal(standardExternalResolver),
         schemaHooks.resolveResult(standardResolver)
       ]
@@ -44,6 +45,7 @@ export const standard = (app) => {
       find: [],
       get: [],
       create: [
+        validate.form(standardJoiSchema),
         schemaHooks.validateData(standardDataValidator),
         schemaHooks.resolveData(standardDataResolver)
       ],
