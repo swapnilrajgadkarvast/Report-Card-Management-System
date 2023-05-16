@@ -17,8 +17,6 @@ import {
 import { UserService, getOptions } from './users.class.js'
 import { userPath, userMethods } from './users.shared.js'
 
-
-
 export * from './users.class.js'
 export * from './users.schema.js'
 
@@ -46,9 +44,11 @@ export const user = (app) => {
       all: [schemaHooks.validateQuery(userQueryValidator), schemaHooks.resolveQuery(userQueryResolver)],
       find: [],
       get: [],
-      create: [ validate.form(userJoiSchema, { abortEarly: false }),
-                schemaHooks.validateData(userDataValidator),
-                schemaHooks.resolveData(userDataResolver)],
+      create: [
+        validate.form(userJoiSchema, { abortEarly: false }),
+        schemaHooks.validateData(userDataValidator),
+        schemaHooks.resolveData(userDataResolver)
+      ],
       patch: [schemaHooks.validateData(userPatchValidator), schemaHooks.resolveData(userPatchResolver)],
       remove: []
     },
