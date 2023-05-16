@@ -6,7 +6,7 @@ const attrs={
     standard:Joi.string().required(),
     division: Joi.string().required(),
     year: Joi.string().required(),
-    heighestMarks:Joi.number().required(),
+    highestMarks:Joi.number().required(),
     averageMarks: Joi.boolean(),
 }
 

@@ -15,6 +15,9 @@ import {
 } from './tests.schema.js'
 import { TestsService, getOptions } from './tests.class.js'
 import { testsPath, testsMethods } from './tests.shared.js'
+import { fetchStandard } from '../../hooks/fetchStandard.js'
+import { fetchDivision } from '../../hooks/fetchDivision.js'
+import { fetchSubject } from '../../hooks/fetchsubject.js'
 
 export * from './tests.class.js'
 export * from './tests.schema.js'
@@ -43,8 +46,20 @@ export const tests = (app) => {
       get: [],
       create: [
         validate.form(testsSchema, { abortEarly: false }),
-        schemaHooks.validateData(testsDataValidator), 
-        schemaHooks.resolveData(testsDataResolver)],
+        fetchSubject(),
+        fetchStandard(),
+        fetchDivision(),
+        schemaHooks.validateData(testsDataValidator),
+        schemaHooks.resolveData(testsDataResolver)
+      ],
+      update: [
+        validate.form(testsSchema, { abortEarly: false }),
+        fetchSubject(),
+        fetchStandard(),
+        fetchDivision(),
+        schemaHooks.validateData(testsDataValidator),
+        schemaHooks.resolveData(testsDataResolver)
+      ],
       patch: [schemaHooks.validateData(testsPatchValidator), schemaHooks.resolveData(testsPatchResolver)],
       remove: []
     },

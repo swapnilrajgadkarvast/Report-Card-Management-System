@@ -8,7 +8,7 @@ export const testsSchema = {
   $id: 'Tests',
   type: 'object',
   additionalProperties: false,
-  required: ['_id', 'name','totalMarks','subject','standard','division','year','heighestMarks','averageMarks'],
+  required: ['_id', 'name','totalMarks','subject','standard','division','year','highestMarks','averageMarks'],
   properties: {
     _id: ObjectIdSchema(),
     name: { type: 'string' },
@@ -17,7 +17,7 @@ export const testsSchema = {
     standard:ObjectIdSchema(),
     division:ObjectIdSchema(),
     year:{type:'number'},
-    heighestMarks:{type:'number'},
+    highestMarks:{type:'number'},
     averageMarks:{type:'number'}
     
   }
@@ -32,7 +32,7 @@ export const testsDataSchema = {
   $id: 'TestsData',
   type: 'object',
   additionalProperties: false,
-  required: ['name','totalMarks','subject','standard','division','year','heighestMarks','averageMarks'],
+  required: ['name','totalMarks','subject','standard','division','year','highestMarks','averageMarks'],
   properties: {
     ...testsSchema.properties
   }
