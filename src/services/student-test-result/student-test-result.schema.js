@@ -8,11 +8,11 @@ export const studentTestResultSchema = {
   $id: 'StudentTestResult',
   type: 'object',
   additionalProperties: false,
-  required: ['_id', 'student', 'test', 'obtainedMarks', 'obtainedGrade'],
+  required: ['_id', 'student', 'tests', 'obtainedMarks', 'obtainedGrade'],
   properties: {
     _id: ObjectIdSchema(),
-    student: { type: 'object' },
-    test: { type: 'string' },
+    student: ObjectIdSchema(),
+    tests: ObjectIdSchema(),
     obtainedMarks: { type: 'number' },
     obtainedGrade: { type: 'string' }
   }
@@ -27,7 +27,7 @@ export const studentTestResultDataSchema = {
   $id: 'StudentTestResultData',
   type: 'object',
   additionalProperties: false,
-  required: ['student', 'test', 'obtainedMarks', 'obtainedGrade'],
+  required: ['student', 'tests', 'obtainedMarks', 'obtainedGrade'],
   properties: {
     ...studentTestResultSchema.properties
   }
