@@ -3,6 +3,16 @@ import { feathers } from '@feathersjs/feathers'
 import authenticationClient from '@feathersjs/authentication-client'
 import { subjectsClient } from './services/subjects/subjects.shared.js'
 
+import { divisionClient } from './services/division/division.shared.js'
+
+import { studentTestResultClient } from './services/student-test-result/student-test-result.shared.js'
+
+import { studentClient } from './services/student/student.shared.js'
+
+import { reportClient } from './services/report/report.shared.js'
+
+import { subjectsClient } from './services/subjects/subjects.shared.js'
+
 import { userrolesClient } from './services/userroles/userroles.shared.js'
 
 import { gradesClient } from './services/grades/grades.shared.js'
@@ -37,6 +47,16 @@ export const createClient = (connection, authenticationOptions = {}) => {
   client.configure(gradesClient)
 
   client.configure(userrolesClient)
+
+  client.configure(subjectsClient)
+
+  client.configure(reportClient)
+
+  client.configure(studentClient)
+
+  client.configure(studentTestResultClient)
+
+  client.configure(divisionClient)
 
   client.configure(subjectsClient)
 
