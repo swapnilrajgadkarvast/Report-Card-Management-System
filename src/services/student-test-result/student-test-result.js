@@ -18,6 +18,7 @@ import { StudentTestResultService, getOptions } from './student-test-result.clas
 import { studentTestResultPath, studentTestResultMethods } from './student-test-result.shared.js'
 import { fetchStudent } from './hooks/fetchStudent.js'
 import { fetchTests } from './hooks/fetchTest.js'
+import { fetchgrades } from './hooks/fetchGrade.js'
 
 export * from './student-test-result.class.js'
 export * from './student-test-result.schema.js'
@@ -51,6 +52,7 @@ export const studentTestResult = (app) => {
         validate.form(studentTestResultSchema, { abortEarly: false }),
         fetchStudent(),
         fetchTests(),
+        fetchgrades(),
         schemaHooks.validateData(studentTestResultDataValidator),
         schemaHooks.resolveData(studentTestResultDataResolver)
       ],
@@ -58,6 +60,7 @@ export const studentTestResult = (app) => {
         validate.form(studentTestResultSchema, { abortEarly: false }),
         fetchStudent(),
         fetchTests(),
+        fetchgrades(),
         schemaHooks.validateData(studentTestResultDataValidator),
         schemaHooks.resolveData(studentTestResultDataResolver)
       ],

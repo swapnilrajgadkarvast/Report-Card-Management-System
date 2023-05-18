@@ -14,7 +14,7 @@ export const studentTestResultSchema = {
     student: ObjectIdSchema(),
     tests: ObjectIdSchema(),
     obtainedMarks: { type: 'number' },
-    obtainedGrade: { type: 'string' }
+    obtainedGrade: ObjectIdSchema()
   }
 }
 export const studentTestResultValidator = getValidator(studentTestResultSchema, dataValidator)
