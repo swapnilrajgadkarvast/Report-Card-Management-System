@@ -22,7 +22,7 @@ export const emailHandler = {
         to: context.data.email, // list of receivers
         subject: "Registration at RCMS", // Subject line
        // text: `Welcome,you are registered successfully and your password is ${context.data.password}`, // plain text body
-        html: '<b>Welcome,you are registered successfully at RCMS </b>' // html body
+        html: context.data.message // html body
 
       })
       console.log('Message sent: %s', info.messageId)

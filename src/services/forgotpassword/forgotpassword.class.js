@@ -20,6 +20,7 @@ async create(data) {
       email: email
     }
   })
+  
   if (userResponse && userResponse.data.length > 0) {
     let comparePassword = await bcrypt.compare(data.currentPassword, userResponse.data[0].password)
     if (comparePassword) {
@@ -43,6 +44,7 @@ async create(data) {
   }
 }
 }
+
 export const getOptions = (app) => {
   return { app }
 }

@@ -3,7 +3,6 @@ import { feathers } from '@feathersjs/feathers'
 import authenticationClient from '@feathersjs/authentication-client'
 import { forgotpasswordClient } from './services/forgotpassword/forgotpassword.shared.js'
 
-import { forgetpasswordClient } from './services/forgetpassword/forgetpassword.shared.js'
 
 import { userClient } from './services/users/users.shared.js'
 
@@ -24,7 +23,6 @@ export const createClient = (connection, authenticationOptions = {}) => {
 
   client.configure(userClient)
 
-  client.configure(forgetpasswordClient)
 
   client.configure(forgotpasswordClient)
 

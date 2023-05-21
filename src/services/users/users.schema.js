@@ -4,18 +4,29 @@ import { ObjectIdSchema } from '@feathersjs/schema'
 import { passwordHash } from '@feathersjs/authentication-local'
 import { dataValidator, queryValidator } from '../../validators.js'
 
+
 // Main data model schema
 export const userSchema = {
   $id: 'User',
   type: 'object',
   additionalProperties: false,
-  required: ['_id', 'name', 'email', 'password', 'isAdmin'],
+  required: ['_id', 'firstName','lastName','email','phone','userName', 'password', 'lastLoggedIn','isActive','isAdmin','updatedBy','updatedAt'],
   properties: {
     _id: ObjectIdSchema(),
-    name: { type: 'string' },
-    email: { type: 'string' },
+    firstName: { type: 'string' },
+    lastName: { type: 'string' },
+    email: {
+      type: 'string',
+      format: 'email'
+    },
+    phone:{type: 'string'},
+    userName:{type: 'string'},
     password: { type: 'string' },
-    isAdmin: { type: 'boolean' }
+    lastLoggedIn:{ type: 'string' },
+    isActive:{ type: 'boolean' },
+    isAdmin: { type: 'boolean' },
+    updatedBy: ObjectIdSchema(),
+    updatedAt:{ type: 'string' }
   }
   }
 
@@ -32,7 +43,7 @@ export const userDataSchema = {
   $id: 'UserData',
   type: 'object',
   additionalProperties: false,
-  required: ['name', 'email', 'password', 'isAdmin'],
+  required: ['firstName','lastName','email','phone','userName', 'password', 'lastLoggedIn','isActive','isAdmin','updatedBy','updatedAt'],
   properties: {
     ...userSchema.properties
   }
