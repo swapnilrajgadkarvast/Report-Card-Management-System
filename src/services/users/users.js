@@ -46,11 +46,12 @@ export const user = (app) => {
       find: [],
       get: [],
 
-      create: [         
-                validate.form(userJoiSchema, { abortEarly: false }),
-                checkUniqueUserName(),
-                schemaHooks.validateData(userDataValidator),
-                schemaHooks.resolveData(userDataResolver)],
+      create: [
+        validate.form(userJoiSchema, { abortEarly: false }),
+        checkUniqueUserName(),
+        schemaHooks.validateData(userDataValidator),
+        schemaHooks.resolveData(userDataResolver)
+      ],
 
       patch: [schemaHooks.validateData(userPatchValidator), schemaHooks.resolveData(userPatchResolver)],
       remove: []
