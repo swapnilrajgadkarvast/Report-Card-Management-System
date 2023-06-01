@@ -1,6 +1,10 @@
 // For more information about this file see https://dove.feathersjs.com/guides/cli/client.html
 import { feathers } from '@feathersjs/feathers'
 import authenticationClient from '@feathersjs/authentication-client'
+import { resultCalculationClient } from './services/result-calculation/result-calculation.shared.js'
+
+import { studentReportClient } from './services/student-report/student-report.shared.js'
+
 import { reportClient } from './services/report/report.shared.js'
 
 import { gradesClient } from './services/grades/grades.shared.js'
@@ -39,6 +43,10 @@ export const createClient = (connection, authenticationOptions = {}) => {
   client.configure(gradesClient)
 
   client.configure(reportClient)
+
+  client.configure(studentReportClient)
+
+  client.configure(resultCalculationClient)
 
   return client
 }

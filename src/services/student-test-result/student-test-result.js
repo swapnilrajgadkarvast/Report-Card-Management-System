@@ -16,8 +16,9 @@ import {
 } from './student-test-result.schema.js'
 import { StudentTestResultService, getOptions } from './student-test-result.class.js'
 import { studentTestResultPath, studentTestResultMethods } from './student-test-result.shared.js'
-import { fetchStudent } from './hooks/fetchStudent.js'
-import { fetchTests } from './hooks/fetchTest.js'
+import { fetchStudent } from '../../hooks/fetchStudent.js'
+import { fetchTests } from '../../hooks/fetchTest.js'
+
 
 export * from './student-test-result.class.js'
 export * from './student-test-result.schema.js'

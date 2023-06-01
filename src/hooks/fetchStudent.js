@@ -4,8 +4,6 @@ export const fetchStudent = () => {
     const student = await studentService.get(context.data.student)
     // console.log(student)
     if (!student) throw new Error('Student with given id is not found')
-    context.data.student = student
-    delete context.data.student
     return context
   }
 }
