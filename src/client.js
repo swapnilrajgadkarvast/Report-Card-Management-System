@@ -2,6 +2,11 @@
 import { feathers } from '@feathersjs/feathers'
 import authenticationClient from '@feathersjs/authentication-client'
 import { forgotpasswordClient } from './services/forgotpassword/forgotpassword.shared.js'
+import { resultCalculationClient } from './services/result-calculation/result-calculation.shared.js'
+
+import { studentReportClient } from './services/student-report/student-report.shared.js'
+
+import { reportClient } from './services/report/report.shared.js'
 
 
 import { userClient } from './services/users/users.shared.js'
@@ -25,6 +30,10 @@ export const createClient = (connection, authenticationOptions = {}) => {
 
 
   client.configure(forgotpasswordClient)
+
+  client.configure(studentReportClient)
+
+  client.configure(resultCalculationClient)
 
   return client
 }

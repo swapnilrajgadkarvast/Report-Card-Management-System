@@ -7,7 +7,7 @@
   ],
   "paginate": {
     "default": 100,
-    "max": 100
+    "max": 5000
   },
   "mongodb": "mongodb://127.0.0.1:27017/report_card_management_system",
   "authentication": {
