@@ -9,3 +9,4 @@ export const studentTestResultClient = (client) => {
     methods: studentTestResultMethods
   })
 }
+  

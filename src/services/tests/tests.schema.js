@@ -32,7 +32,7 @@ export const testsDataSchema = {
   $id: 'TestsData',
   type: 'object',
   additionalProperties: false,
-  required: ['name','totalMarks','subject','standard','division','year','highestMarks','averageMarks'],
+  required: ['name','totalMarks','subject','standard','division','year'],
   properties: {
     ...testsSchema.properties
   }

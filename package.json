@@ -7,7 +7,9 @@
   "keywords": [
     "feathers"
   ],
-  "author": {"name": "Kshama"},
+  "author": {
+    "name": "Kshama"
+  },
   "contributors": [],
   "bugs": {},
   "engines": {
@@ -59,6 +61,7 @@
     "@feathersjs/transport-commons": "^5.0.5",
     "bcrypt": "^5.1.0",
     "compression": "^1.7.4",
+    "feathers-mongodb": "^6.4.1",
     "feathers-validate-joi": "^4.0.1",
     "joi": "^17.9.2",
     "mongodb": "^5.2.0",

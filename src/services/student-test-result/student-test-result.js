@@ -3,6 +3,7 @@ import { authenticate } from '@feathersjs/authentication'
 import { studentTestResultSchema } from './student-test-result.model.js'
 import validate from 'feathers-validate-joi'
 
+
 import { hooks as schemaHooks } from '@feathersjs/schema'
 import {
   studentTestResultDataValidator,
@@ -19,6 +20,7 @@ import { studentTestResultPath, studentTestResultMethods } from './student-test-
 import { fetchStudent } from './hooks/fetchStudent.js'
 import { fetchTests } from './hooks/fetchTest.js'
 import { fetchgrades } from './hooks/fetchGrade.js'
+import { updateHeighestMarksAndAverageMarks } from './hooks/updateHeighestMarksAndAverageMarks.js'
 
 export * from './student-test-result.class.js'
 export * from './student-test-result.schema.js'
@@ -53,6 +55,7 @@ export const studentTestResult = (app) => {
         fetchStudent(),
         fetchTests(),
         fetchgrades(),
+        updateHeighestMarksAndAverageMarks(),
         schemaHooks.validateData(studentTestResultDataValidator),
         schemaHooks.resolveData(studentTestResultDataResolver)
       ],
