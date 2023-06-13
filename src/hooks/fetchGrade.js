@@ -1,4 +1,4 @@
-export const fetchgrades = () => {
+export const fetchGrade = () => {
     return async (context) => {
       const gradesService = context.app.service('grades')
       const grades = await gradesService.get(context.data.grades)

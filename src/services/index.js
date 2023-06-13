@@ -22,11 +22,12 @@ import { forgotpassword } from './forgotpassword/forgotpassword.js'
 
 import { user } from './users/users.js'
 
+import { userroles } from './userroles/userroles.js'
+
 export const services = (app) => {
   app.configure(division)
 
   app.configure(resultCalculation)
-  
   app.configure(grades)
 
   app.configure(report)
@@ -46,5 +47,7 @@ export const services = (app) => {
   app.configure(forgotpassword)
 
   app.configure(user)
+
+  app.configure(userroles)
   // All services will be registered here
 }

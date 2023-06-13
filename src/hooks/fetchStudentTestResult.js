@@ -1,13 +1,3 @@
-// export const fetchTestResult = () => {
-//   return async (context) => {
-//     const studentTestResultService = context.app.service('student-test-result')
-//     const studentTestResult = await studentTestResultService.get(context.data.studentTestResult)
-//     console.log(studentTestResult)
-//     if (!studentTestResult) throw new Error('StudentTestResult with given id is not found')
-//     return context
-//   }
-// }
-
 export const fetchTestResult = () => {
   return async (context) => {
     const student = context.data.student // Assuming student is the property name for the student ID in context.data

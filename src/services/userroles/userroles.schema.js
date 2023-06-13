@@ -12,11 +12,11 @@ export const userrolesSchema = {
   properties: {
     _id: ObjectIdSchema(),
     user:ObjectIdSchema(),
+    role:ObjectIdSchema(),
     standard:ObjectIdSchema(),
     division:ObjectIdSchema(),
-    role:{ type: 'string' },
-    year:{ type: 'string' },
     subject:ObjectIdSchema(),
+    year:{ type: 'number' },
   }
 }
 export const userrolesValidator = getValidator(userrolesSchema, dataValidator)
