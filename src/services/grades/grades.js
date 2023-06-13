@@ -32,7 +32,7 @@ export const grades = (app) => {
   app.service(gradesPath).hooks({
     around: {
       all: [
-       // authenticate('jwt'),
+        // authenticate('jwt'),
         schemaHooks.resolveExternal(gradesExternalResolver),
         schemaHooks.resolveResult(gradesResolver)
       ]
@@ -41,10 +41,15 @@ export const grades = (app) => {
       all: [schemaHooks.validateQuery(gradesQueryValidator), schemaHooks.resolveQuery(gradesQueryResolver)],
       find: [],
       get: [],
-      create: [validate.form(gradesJoiSchema),
+      create: [
+        validate.form(gradesJoiSchema),
         schemaHooks.validateData(gradesDataValidator),
-         schemaHooks.resolveData(gradesDataResolver)],
-      patch: [schemaHooks.validateData(gradesPatchValidator), schemaHooks.resolveData(gradesPatchResolver)],
+        schemaHooks.resolveData(gradesDataResolver)
+      ],
+      patch: [
+        schemaHooks.validateData(gradesPatchValidator),
+        schemaHooks.resolveData(gradesPatchResolver)
+      ],
       remove: []
     },
     after: {
@@ -55,4 +60,3 @@ export const grades = (app) => {
     }
   })
 }
-

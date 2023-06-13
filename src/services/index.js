@@ -1,7 +1,6 @@
 import { division } from './division/division.js'
+
 import { resultCalculation } from './result-calculation/result-calculation.js'
-
-
 
 import { grades } from './grades/grades.js'
 
@@ -25,10 +24,9 @@ import { user } from './users/users.js'
 
 export const services = (app) => {
   app.configure(division)
+
   app.configure(resultCalculation)
-
   
-
   app.configure(grades)
 
   app.configure(report)
