@@ -3,9 +3,9 @@ import { authenticate } from '@feathersjs/authentication'
 import validate from 'feathers-validate-joi'
 import { userrolesJoiSchema } from './userroles.joimodel.js'
 import { fetchDivision } from '../../hooks/fetchDivision.js'
-import {fetchStandard} from '../../hooks/fetchStandard.js'
-import {fetchUser} from '../../hooks/fetchUser.js'
-import {fetchSubject} from '../../hooks/fetchsubject.js'
+import { fetchStandard } from '../../hooks/fetchStandard.js'
+import { fetchUser } from '../../hooks/fetchUser.js'
+import { fetchSubject } from '../../hooks/fetchsubject.js'
 
 import { hooks as schemaHooks } from '@feathersjs/schema'
 import {
@@ -37,7 +37,7 @@ export const userroles = (app) => {
   app.service(userrolesPath).hooks({
     around: {
       all: [
-       // authenticate('jwt'),
+        // authenticate('jwt'),
         schemaHooks.resolveExternal(userrolesExternalResolver),
         schemaHooks.resolveResult(userrolesResolver)
       ]
@@ -51,14 +51,19 @@ export const userroles = (app) => {
       get: [],
       create: [
         validate.form(userrolesJoiSchema, { abortEarly: false }),
-          fetchDivision(),
-          fetchStandard(),
-          fetchSubject(),
-          fetchUser(),
+        fetchDivision(),
+        fetchStandard(),
+        fetchSubject(),
+        fetchUser(),
         schemaHooks.validateData(userrolesDataValidator),
         schemaHooks.resolveData(userrolesDataResolver)
       ],
       patch: [
+        validate.form(userrolesJoiSchema, { abortEarly: false }),
+        fetchDivision(),
+        fetchStandard(),
+        fetchSubject(),
+        fetchUser(),
         schemaHooks.validateData(userrolesPatchValidator),
         schemaHooks.resolveData(userrolesPatchResolver)
       ],
