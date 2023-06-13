@@ -17,11 +17,11 @@ import {
 } from './student-test-result.schema.js'
 import { StudentTestResultService, getOptions } from './student-test-result.class.js'
 import { studentTestResultPath, studentTestResultMethods } from './student-test-result.shared.js'
-import { fetchgrades } from './hooks/fetchGrade.js'
-import { updateHeighestMarksAndAverageMarks } from './hooks/updateHeighestMarksAndAverageMarks.js'
+
+import { fetchGrade } from '../../hooks/fetchGrade.js'
+import { updateHeighestMarksAndAverageMarks } from '../../hooks/updateHeighestMarksAndAverageMarks.js'
 import { fetchStudent } from '../../hooks/fetchStudent.js'
 import { fetchTests } from '../../hooks/fetchTest.js'
-
 
 export * from './student-test-result.class.js'
 export * from './student-test-result.schema.js'
@@ -55,7 +55,7 @@ export const studentTestResult = (app) => {
         validate.form(studentTestResultSchema, { abortEarly: false }),
         fetchStudent(),
         fetchTests(),
-        fetchgrades(),
+        fetchGrade(),
         updateHeighestMarksAndAverageMarks(),
         schemaHooks.validateData(studentTestResultDataValidator),
         schemaHooks.resolveData(studentTestResultDataResolver)
@@ -64,7 +64,7 @@ export const studentTestResult = (app) => {
         validate.form(studentTestResultSchema, { abortEarly: false }),
         fetchStudent(),
         fetchTests(),
-        fetchgrades(),
+        fetchGrade(),
         schemaHooks.validateData(studentTestResultDataValidator),
         schemaHooks.resolveData(studentTestResultDataResolver)
       ],
