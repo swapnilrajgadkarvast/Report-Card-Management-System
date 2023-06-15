@@ -84,7 +84,6 @@ export const userQueryResolver = resolve({
     if (context.params.user) {
       return context.params.user._id
     }
-
     return value
   }
 })
