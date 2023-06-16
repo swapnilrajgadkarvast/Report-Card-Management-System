@@ -28,7 +28,6 @@ export const services = (app) => {
   app.configure(division)
 
   app.configure(resultCalculation)
-
   app.configure(grades)
 
   app.configure(report)
