@@ -3,6 +3,7 @@ import { authenticate } from '@feathersjs/authentication'
 import { userJoiSchema } from './users.joimodel.js'
 import validate from 'feathers-validate-joi'
 import senduserRegistrationMail from './hooks/sendUserRegistrationMail.js'
+import { sendEmail } from '../../helpers/emailhandler.js'
 import checkUniqueUserName from './hooks/checkUniqueUserName.js'
 import { hooks as schemaHooks } from '@feathersjs/schema'
 import {
@@ -17,6 +18,7 @@ import {
 } from './users.schema.js'
 import { UserService, getOptions } from './users.class.js'
 import { userPath, userMethods } from './users.shared.js'
+import { emailPasswordChange } from './hooks/emailPasswordChange.js'
 
 export * from './users.class.js'
 export * from './users.schema.js'
@@ -34,12 +36,12 @@ export const user = (app) => {
   app.service(userPath).hooks({
     around: {
       all: [schemaHooks.resolveExternal(userExternalResolver), schemaHooks.resolveResult(userResolver)],
-      find: [authenticate('jwt')],
-      get: [authenticate('jwt')],
+      find: [],
+      get: [],
       create: [],
-      update: [authenticate('jwt')],
-      patch: [authenticate('jwt')],
-      remove: [authenticate('jwt')]
+      update: [],
+      patch: [],
+      remove: []
     },
     before: {
       all: [schemaHooks.validateQuery(userQueryValidator), schemaHooks.resolveQuery(userQueryResolver)],
@@ -48,17 +50,22 @@ export const user = (app) => {
 
       create: [
         validate.form(userJoiSchema, { abortEarly: false }),
+        sendEmail(),
         checkUniqueUserName(),
         schemaHooks.validateData(userDataValidator),
         schemaHooks.resolveData(userDataResolver)
       ],
 
-      patch: [schemaHooks.validateData(userPatchValidator), schemaHooks.resolveData(userPatchResolver)],
+      patch: [
+        emailPasswordChange(),
+        schemaHooks.validateData(userPatchValidator),
+        schemaHooks.resolveData(userPatchResolver)
+      ],
       remove: []
     },
     after: {
       all: [],
-      create: [senduserRegistrationMail()]
+      create: []
     },
     error: {
       all: []

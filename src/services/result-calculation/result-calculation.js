@@ -15,8 +15,8 @@ import {
 } from './result-calculation.schema.js'
 import { ResultCalculationService, getOptions } from './result-calculation.class.js'
 import { resultCalculationPath, resultCalculationMethods } from './result-calculation.shared.js'
-import { fetchStudent } from '../../hooks/fetchStudent.js'
-import { fetchTestResult } from '../../hooks/fetchStudentTestResult.js'
+import { fetchStudent } from '../../helpers/hooks/fetchStudent.js'
+import { fetchTestResult } from '../../helpers/hooks/fetchStudentTestResult.js'
 
 export * from './result-calculation.class.js'
 export * from './result-calculation.schema.js'

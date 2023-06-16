@@ -2,7 +2,7 @@
 import { authenticate } from '@feathersjs/authentication'
 import { divisionJoiSchema } from './division.joimodel.js'
 import validate from 'feathers-validate-joi'
-import { fetchStandard } from '../../hooks/fetchStandard.js'
+import { fetchStandard } from '../../helpers/hooks/fetchStandard.js'
 import { hooks as schemaHooks } from '@feathersjs/schema'
 import {
   divisionDataValidator,

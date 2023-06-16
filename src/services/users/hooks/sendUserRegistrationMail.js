@@ -1,4 +1,4 @@
-import { emailHandler } from '../../../helpers/emailhandler.js'
+// import { emailHandler } from '../../../helpers/emailhandler.js'
 
 export default function () {
   return (context) => {
@@ -6,6 +6,6 @@ export default function () {
       ...context.data
     }
     context.data.message='<b>Welcome,you are registered successfully at RCMS </b>'
-    emailHandler.sendEmail(context)
+    // emailHandler.sendEmail(context)
   }
 }

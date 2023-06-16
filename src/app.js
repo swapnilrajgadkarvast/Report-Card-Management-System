@@ -13,7 +13,7 @@ import configuration from '@feathersjs/configuration'
 import socketio from '@feathersjs/socketio'
 import { configurationValidator } from './configuration.js'
 import { logger } from './logger.js'
-import { logError } from './hooks/log-error.js'
+import { logError } from './helpers/hooks/log-error.js'
 import { mongodb } from './mongodb.js'
 
 import { authentication } from './authentication.js'

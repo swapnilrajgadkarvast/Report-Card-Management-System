@@ -16,8 +16,8 @@ import {
 } from './student.schema.js'
 import { StudentService, getOptions } from './student.class.js'
 import { studentPath, studentMethods } from './student.shared.js'
-import { fetchStandard } from '../../hooks/fetchStandard.js'
-import { fetchDivision } from '../../hooks/fetchDivision.js'
+import { fetchStandard } from '../../helpers/hooks/fetchStandard.js'
+import { fetchDivision } from '../../helpers/hooks/fetchDivision.js'
 
 export * from './student.class.js'
 export * from './student.schema.js'

@@ -16,7 +16,7 @@ import {
 } from './report.schema.js'
 import { ReportService, getOptions } from './report.class.js'
 import { reportPath, reportMethods } from './report.shared.js'
-import { fetchStudent } from '../../hooks/fetchStudent.js'
+import { fetchStudent } from '../../helpers/hooks/fetchStudent.js'
 
 export * from './report.class.js'
 export * from './report.schema.js'

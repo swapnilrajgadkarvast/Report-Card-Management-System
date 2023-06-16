@@ -2,10 +2,10 @@
 import { authenticate } from '@feathersjs/authentication'
 import validate from 'feathers-validate-joi'
 import { userrolesJoiSchema } from './userroles.joimodel.js'
-import { fetchDivision } from '../../hooks/fetchDivision.js'
-import { fetchStandard } from '../../hooks/fetchStandard.js'
-import { fetchUser } from '../../hooks/fetchUser.js'
-import { fetchSubject } from '../../hooks/fetchsubject.js'
+import { fetchDivision } from '../../helpers/hooks/fetchDivision.js'
+import { fetchStandard } from '../../helpers/hooks/fetchStandard.js'
+import { fetchUser } from '../../helpers/hooks/fetchUser.js'
+import { fetchSubject } from '../../helpers/hooks/fetchsubject.js'
 
 import { hooks as schemaHooks } from '@feathersjs/schema'
 import {

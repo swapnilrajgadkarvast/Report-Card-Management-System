@@ -4,13 +4,25 @@ import { ObjectIdSchema } from '@feathersjs/schema'
 import { passwordHash } from '@feathersjs/authentication-local'
 import { dataValidator, queryValidator } from '../../validators.js'
 
-
 // Main data model schema
 export const userSchema = {
   $id: 'User',
   type: 'object',
   additionalProperties: false,
-  required: ['_id', 'firstName','lastName','email','phone','userName', 'password', 'lastLoggedIn','isActive','isAdmin','updatedBy','updatedAt'],
+  required: [
+    '_id',
+    'firstName',
+    'lastName',
+    'email',
+    'phone',
+    'userName',
+    'password',
+    'lastLoggedIn',
+    'role',
+    'isActive',
+    'updatedBy',
+    'updatedAt'
+  ],
   properties: {
     _id: ObjectIdSchema(),
     firstName: { type: 'string' },
@@ -19,16 +31,16 @@ export const userSchema = {
       type: 'string',
       format: 'email'
     },
-    phone:{type: 'string'},
-    userName:{type: 'string'},
+    phone: { type: 'string' },
+    userName: { type: 'string' },
     password: { type: 'string' },
-    lastLoggedIn:{ type: 'string' },
-    isActive:{ type: 'boolean' },
-    isAdmin: { type: 'boolean' },
+    lastLoggedIn: { type: 'string' },
+    role: { type: 'string' },
+    isActive: { type: 'boolean' },
     updatedBy: ObjectIdSchema(),
-    updatedAt:{ type: 'string' }
+    updatedAt: { type: 'string' }
   }
-  }
+}
 
 export const userValidator = getValidator(userSchema, dataValidator)
 export const userResolver = resolve({})
@@ -43,7 +55,19 @@ export const userDataSchema = {
   $id: 'UserData',
   type: 'object',
   additionalProperties: false,
-  required: ['firstName','lastName','email','phone','userName', 'password', 'lastLoggedIn','isActive','isAdmin','updatedBy','updatedAt'],
+  required: [
+    'firstName',
+    'lastName',
+    'email',
+    'phone',
+    'userName',
+    'password',
+    'lastLoggedIn',
+    'isActive',
+    'role',
+    'updatedBy',
+    'updatedAt'
+  ],
   properties: {
     ...userSchema.properties
   }

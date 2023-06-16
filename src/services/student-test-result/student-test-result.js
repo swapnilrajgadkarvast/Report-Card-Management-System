@@ -18,10 +18,10 @@ import {
 import { StudentTestResultService, getOptions } from './student-test-result.class.js'
 import { studentTestResultPath, studentTestResultMethods } from './student-test-result.shared.js'
 
-import { fetchGrade } from '../../hooks/fetchGrade.js'
-import { updateHeighestMarksAndAverageMarks } from '../../hooks/updateHeighestMarksAndAverageMarks.js'
-import { fetchStudent } from '../../hooks/fetchStudent.js'
-import { fetchTests } from '../../hooks/fetchTest.js'
+import { fetchGrade } from '../../helpers/hooks/fetchGrade.js'
+import { updateHeighestMarksAndAverageMarks } from '../../helpers/hooks/updateHeighestMarksAndAverageMarks.js'
+import { fetchStudent } from '../../helpers/hooks/fetchStudent.js'
+import { fetchTests } from '../../helpers/hooks/fetchTest.js'
 
 export * from './student-test-result.class.js'
 export * from './student-test-result.schema.js'
