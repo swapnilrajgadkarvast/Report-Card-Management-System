@@ -22,7 +22,7 @@ async create(data) {
   })
   
   if (userResponse && userResponse.data.length > 0) {
-    let comparePassword = await bcrypt.compare(data.currentPassword, userResponse.data[0].password)
+    let comparePassword = await bcrypt.compare(data.temporaryPassword, userResponse.data[0].password)
     if (comparePassword) {
       if (
         newPassword.toString() !== email.toString() &&

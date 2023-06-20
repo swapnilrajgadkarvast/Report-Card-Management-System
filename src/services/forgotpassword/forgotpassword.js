@@ -1,5 +1,5 @@
 // For more information about this file see https://dove.feathersjs.com/guides/cli/service.html
-import sendRecoveryMail from './hooks/sendRecoveryMail.js'
+import { emailConfirmedPassword } from './hooks/sendRecoveryMail.js'
 import { hooks as schemaHooks } from '@feathersjs/schema'
 import {
   forgotpasswordDataValidator,
@@ -7,7 +7,7 @@ import {
   // forgotpasswordQueryValidator,
   // forgotpasswordResolver,
   // forgotpasswordExternalResolver,
-  forgotpasswordDataResolver,
+  forgotpasswordDataResolver
   // forgotpasswordPatchResolver,
   // forgotpasswordQueryResolver
 } from './forgotpassword.schema.js'
@@ -42,10 +42,10 @@ export const forgotpassword = (app) => {
       // find: [],
       // get: [],
       create: [
-        sendRecoveryMail(),
+        // emailConfirmedPassword(),
         schemaHooks.validateData(forgotpasswordDataValidator),
         schemaHooks.resolveData(forgotpasswordDataResolver)
-      ],
+      ]
       // patch: [
       //   schemaHooks.validateData(forgotpasswordPatchValidator),
       //   schemaHooks.resolveData(forgotpasswordPatchResolver)

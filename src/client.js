@@ -10,6 +10,7 @@ import { reportClient } from './services/report/report.shared.js'
 
 
 import { userClient } from './services/users/users.shared.js'
+import { gradesClient } from './services/grades/grades.shared.js'
 
 /**
  * Returns a  client for the report_card_management_system app.
@@ -27,6 +28,8 @@ export const createClient = (connection, authenticationOptions = {}) => {
   client.set('connection', connection)
 
   client.configure(userClient)
+
+  client.configure(gradesClient)
 
 
   client.configure(forgotpasswordClient)

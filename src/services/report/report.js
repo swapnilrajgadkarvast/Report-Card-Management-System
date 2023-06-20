@@ -17,6 +17,8 @@ import {
 import { ReportService, getOptions } from './report.class.js'
 import { reportPath, reportMethods } from './report.shared.js'
 import { fetchStudent } from '../../helpers/hooks/fetchStudent.js'
+import { uploadReport } from './hooks/uploadReport.js'
+import multer from 'multer'
 
 export * from './report.class.js'
 export * from './report.schema.js'
@@ -24,12 +26,34 @@ export * from './report.schema.js'
 // A configure function that registers the service and its hooks via `app.configure`
 export const report = (app) => {
   // Register our service on the Feathers application
-  app.use(reportPath, new ReportService(getOptions(app)), {
-    // A list of all methods this service exposes externally
-    methods: reportMethods,
-    // You can add additional custom events to be sent to clients here
-    events: []
-  })
+  app.use(
+    reportPath,
+
+    multer({
+      storage: multer.diskStorage({
+        destination: function (req, file, cb) {
+          cb(null, 'src/uploads')
+        },
+        filename: function (req, file, cb) {
+          const ext = file.originalname.split('.')
+          console.log(ext[1])
+          cb(null, file.originalname, +'.' + ext[1])
+        }
+      })
+    }).single('file'),
+    (req, res, next) => {
+      req.feathers.file = req.file
+      next()
+    },
+
+    new ReportService(getOptions(app)),
+    {
+      // A list of all methods this service exposes externally
+      methods: reportMethods,
+      // You can add additional custom events to be sent to clients here
+      events: []
+    }
+  )
   // Initialize hooks
   app.service(reportPath).hooks({
     around: {
@@ -46,6 +70,7 @@ export const report = (app) => {
       create: [
         validate.form(reportSchema, { abortEarly: false }),
         fetchStudent(),
+        // uploadReport(),
         schemaHooks.validateData(reportDataValidator),
         schemaHooks.resolveData(reportDataResolver)
       ],

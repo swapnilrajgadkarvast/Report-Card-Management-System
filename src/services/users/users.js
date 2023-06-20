@@ -18,7 +18,7 @@ import {
 } from './users.schema.js'
 import { UserService, getOptions } from './users.class.js'
 import { userPath, userMethods } from './users.shared.js'
-import { emailPasswordChange } from './hooks/emailPasswordChange.js'
+import { userRegistration } from './hooks/emailPasswordChange.js'
 
 export * from './users.class.js'
 export * from './users.schema.js'
@@ -57,7 +57,7 @@ export const user = (app) => {
       ],
 
       patch: [
-        emailPasswordChange(),
+        userRegistration(),
         schemaHooks.validateData(userPatchValidator),
         schemaHooks.resolveData(userPatchResolver)
       ],

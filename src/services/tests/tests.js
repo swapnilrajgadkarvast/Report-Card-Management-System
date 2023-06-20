@@ -18,6 +18,7 @@ import { testsPath, testsMethods } from './tests.shared.js'
 import { fetchStandard } from '../../helpers/hooks/fetchStandard.js'
 import { fetchDivision } from '../../helpers/hooks/fetchDivision.js'
 import { fetchSubject } from '../../helpers/hooks/fetchsubject.js'
+import { updateHeighestMarksAndAverageMarks } from '../../helpers/hooks/updateHeighestMarksAndAverageMarks.js'
 
 export * from './tests.class.js'
 export * from './tests.schema.js'
@@ -57,6 +58,7 @@ export const tests = (app) => {
         fetchSubject(),
         fetchStandard(),
         fetchDivision(),
+        updateHeighestMarksAndAverageMarks(),
         schemaHooks.validateData(testsDataValidator),
         schemaHooks.resolveData(testsDataResolver)
       ],

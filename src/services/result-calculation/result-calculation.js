@@ -44,7 +44,7 @@ export const resultCalculation = (app) => {
         schemaHooks.resolveQuery(resultCalculationQueryResolver)
       ],
       find: [],
-      get: [],
+      get: [fetchStudent(), fetchTestResult()],
       create: [
         validate.form(resultCalculationSchema, { abortEarly: false }),
         fetchStudent(),
