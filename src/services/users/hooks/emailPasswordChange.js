@@ -1,6 +1,6 @@
 import nodemailer from 'nodemailer'
 
-export const emailPasswordChange = () => {
+export const userRegistration = () => {
   return async (context) => {
     const userEmail = context.data.email
     const userData = context.data

@@ -2,9 +2,9 @@
 import { authenticate } from '@feathersjs/authentication'
 import { userJoiSchema } from './users.joimodel.js'
 import validate from 'feathers-validate-joi'
-import { senduserRegistrationMail } from './hooks/sendUserRegistrationMail.js'
+import senduserRegistrationMail from './hooks/sendUserRegistrationMail.js'
 import { sendEmail } from '../../helpers/emailhandler.js'
-import { checkUniqueUserName } from './hooks/checkUniqueUserName.js'
+import checkUniqueUserName from './hooks/checkUniqueUserName.js'
 import { hooks as schemaHooks } from '@feathersjs/schema'
 import {
   userDataValidator,
