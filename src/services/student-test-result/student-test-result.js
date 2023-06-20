@@ -55,16 +55,16 @@ export const studentTestResult = (app) => {
         validate.form(studentTestResultSchema, { abortEarly: false }),
         fetchStudent(),
         fetchTests(),
-        fetchGrade(),
+         fetchGrade(),
         updateHeighestMarksAndAverageMarks(),
         schemaHooks.validateData(studentTestResultDataValidator),
         schemaHooks.resolveData(studentTestResultDataResolver)
       ],
       update: [
         validate.form(studentTestResultSchema, { abortEarly: false }),
-        fetchStudent(),
-        fetchTests(),
-        fetchGrade(),
+       // fetchStudent(),
+       // fetchTests(),
+      //  fetchGrade(),
         schemaHooks.validateData(studentTestResultDataValidator),
         schemaHooks.resolveData(studentTestResultDataResolver)
       ],
