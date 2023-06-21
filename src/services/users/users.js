@@ -2,8 +2,6 @@
 import { authenticate } from '@feathersjs/authentication'
 import { userJoiSchema } from './users.joimodel.js'
 import validate from 'feathers-validate-joi'
-import senduserRegistrationMail from './hooks/sendUserRegistrationMail.js'
-import { sendEmail } from '../../helpers/emailhandler.js'
 import checkUniqueUserName from './hooks/checkUniqueUserName.js'
 import { hooks as schemaHooks } from '@feathersjs/schema'
 import {
@@ -18,7 +16,7 @@ import {
 } from './users.schema.js'
 import { UserService, getOptions } from './users.class.js'
 import { userPath, userMethods } from './users.shared.js'
-import { userRegistration } from './hooks/emailPasswordChange.js'
+import { userRegistration } from '../../helpers/emailSender/userRegistrationEmail.js'
 
 export * from './users.class.js'
 export * from './users.schema.js'
@@ -50,8 +48,8 @@ export const user = (app) => {
 
       create: [
         validate.form(userJoiSchema, { abortEarly: false }),
-        sendEmail(),
-        checkUniqueUserName(),
+        userRegistration(),
+        // checkUniqueUserName(),
         schemaHooks.validateData(userDataValidator),
         schemaHooks.resolveData(userDataResolver)
       ],

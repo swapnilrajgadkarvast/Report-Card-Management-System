@@ -19,6 +19,7 @@ import { reportPath, reportMethods } from './report.shared.js'
 import { fetchStudent } from '../../helpers/hooks/fetchStudent.js'
 import { uploadReport } from './hooks/uploadReport.js'
 import multer from 'multer'
+import { sendEmailWithPDF } from '../../helpers/emailSender/sendEmailPDF.js'
 
 export * from './report.class.js'
 export * from './report.schema.js'
@@ -71,6 +72,7 @@ export const report = (app) => {
         validate.form(reportSchema, { abortEarly: false }),
         fetchStudent(),
         // uploadReport(),
+        sendEmailWithPDF(),
         schemaHooks.validateData(reportDataValidator),
         schemaHooks.resolveData(reportDataResolver)
       ],

@@ -1,15 +1,14 @@
 import nodemailer from 'nodemailer'
 
-export const userRegistration = () => {
+export const emailConfirmedPassword = () => {
   return async (context) => {
-    const userEmail = context.data.email
-    const userData = context.data
-
-    console.log('User Data')
+    // console.log('Context Data --->')
+    // console.log(context.data)
+    const userEmail = await context.data.email
+    console.log('User Email --->', userEmail)
+    const userData = await context.data
+    console.log('User Data --->')
     console.log(userData)
-
-    console.log('userEmail')
-    console.log(userEmail)
 
     await main(userEmail, userData).catch(console.error)
 
@@ -26,7 +25,7 @@ async function main(userEmail, userData) {
     }
   })
 
-  const textMessage = `Welcome to Report Card Management System. Your registered Email is ${userData.email} and your Password is ${userData.password}.`
+  const textMessage = `Welcome to Report Card Management System. Your Registered Email is ${userData.email} and Your Updated Password is ${userData.newPassword}.`
 
   let info = await transporter.sendMail({
     from: process.env.email,
