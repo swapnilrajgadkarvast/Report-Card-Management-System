@@ -1,9 +1,5 @@
 import nodemailer from 'nodemailer'
 
-function sleep(ms) {
-  return new Promise((resolve) => setTimeout(resolve, ms))
-}
-
 export const sendEmailWithPDF = () => {
   return async (context) => {
     // console.log(context.data)
@@ -21,12 +17,6 @@ export const sendEmailWithPDF = () => {
 
     console.log('User Data Pdf File Path')
     console.log(userData.reportFilePath)
-
-    console.log('Start Timer for 30 second')
-
-    await sleep(30000) // This will sleep process for 30 seconds in that time user will save the pdf file in the specified location
-
-    console.log('Time ended')
 
     // console.log(`the user who just registered is ${userEmail} and data is ${JSON.stringify(userData)}`)
     await main(userEmail, userData, context.data.reportFilePath).catch(console.error)
