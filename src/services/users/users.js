@@ -55,7 +55,7 @@ export const user = (app) => {
       ],
 
       patch: [
-        userRegistration(),
+       // userRegistration(),
         schemaHooks.validateData(userPatchValidator),
         schemaHooks.resolveData(userPatchResolver)
       ],
