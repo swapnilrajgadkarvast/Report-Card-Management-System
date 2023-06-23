@@ -6,8 +6,8 @@ const attrs = {
   standard: Joi.string().required(),
   division: Joi.string().required(),
   year: Joi.number().required(),
-//   highestMarks: Joi.number().required(),
-//   averageMarks: Joi.boolean()
+  highestMarks: Joi.number().required(),
+  averageMarks: Joi.number().required()
 }
 
 export const testsSchema = Joi.object(attrs)

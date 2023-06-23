@@ -17,6 +17,7 @@ import {
 import { UserService, getOptions } from './users.class.js'
 import { userPath, userMethods } from './users.shared.js'
 import { userRegistration } from '../../helpers/emailSender/userRegistrationEmail.js'
+import { emailTemporaryPassword } from '../../helpers/emailSender/emailTemporaryPassword.js'
 
 export * from './users.class.js'
 export * from './users.schema.js'
@@ -55,7 +56,11 @@ export const user = (app) => {
       ],
 
       patch: [
+<<<<<<< HEAD
        // userRegistration(),
+=======
+        emailTemporaryPassword(),
+>>>>>>> 75455fff23916fca76f6b2b37a715cb63cfbe5f4
         schemaHooks.validateData(userPatchValidator),
         schemaHooks.resolveData(userPatchResolver)
       ],

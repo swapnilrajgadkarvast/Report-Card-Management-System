@@ -58,7 +58,7 @@ export const tests = (app) => {
         fetchSubject(),
         fetchStandard(),
         fetchDivision(),
-        updateHeighestMarksAndAverageMarks(),
+        // updateHeighestMarksAndAverageMarks(),
         schemaHooks.validateData(testsDataValidator),
         schemaHooks.resolveData(testsDataResolver)
       ],

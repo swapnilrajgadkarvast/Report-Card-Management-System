@@ -70,15 +70,14 @@ export const report = (app) => {
       get: [],
       create: [
         validate.form(reportSchema, { abortEarly: false }),
-        fetchStudent(),
+        // fetchStudent(),
         // uploadReport(),
-        sendEmailWithPDF(),
+        // sendEmailWithPDF(),
         schemaHooks.validateData(reportDataValidator),
         schemaHooks.resolveData(reportDataResolver)
       ],
       update: [
         validate.form(reportSchema, { abortEarly: false }),
-        fetchStudent(),
         schemaHooks.validateData(reportDataValidator),
         schemaHooks.resolveData(reportDataResolver)
       ],
@@ -86,7 +85,8 @@ export const report = (app) => {
       remove: []
     },
     after: {
-      all: []
+      all: [],
+      create: [sendEmailWithPDF()]
     },
     error: {
       all: []
