@@ -56,11 +56,7 @@ export const user = (app) => {
       ],
 
       patch: [
-<<<<<<< HEAD
-       // userRegistration(),
-=======
         emailTemporaryPassword(),
->>>>>>> 75455fff23916fca76f6b2b37a715cb63cfbe5f4
         schemaHooks.validateData(userPatchValidator),
         schemaHooks.resolveData(userPatchResolver)
       ],
