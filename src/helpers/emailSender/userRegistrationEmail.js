@@ -13,8 +13,8 @@ async function main(userEmail, userData) {
   let transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-      user: process.env.rcms_email_id,
-      pass: process.env.rcms_email_pass
+      user: process.env.email,
+      pass: process.env.devpassword
     }
   })
 
