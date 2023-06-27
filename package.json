@@ -8,7 +8,7 @@
     "feathers"
   ],
   "author": {
-    "name": "Kshama"
+    "name": "Swapnil & Kshama"
   },
   "contributors": [],
   "bugs": {},
@@ -43,7 +43,8 @@
     "prettier": "npx prettier \"**/*.js\" --write",
     "mocha": "cross-env NODE_ENV=test mocha test/ --recursive --exit",
     "test": "npm run mocha",
-    "bundle:client": "npm pack --pack-destination ./public"
+    "bundle:client": "npm pack --pack-destination ./public",
+    "build": "npm i"
   },
   "dependencies": {
     "@feathersjs/adapter-commons": "^5.0.5",

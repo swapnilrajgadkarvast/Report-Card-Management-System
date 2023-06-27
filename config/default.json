@@ -6,7 +6,7 @@
     "http://localhost:3030"
   ],
   "paginate": {
-    "default": 100,
+    "default": 1000,
     "max": 5000
   },
   "mongodb": "mongodb://127.0.0.1:27017/report_card_management_system",
