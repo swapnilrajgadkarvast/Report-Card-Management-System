@@ -4,9 +4,7 @@ export const userRegistration = () => {
   return async (context) => {
     const userEmail = context.data.email
     const userData = context.data
-
     await main(userEmail, userData).catch(console.error)
-
     return context
   }
 }
@@ -15,8 +13,8 @@ async function main(userEmail, userData) {
   let transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-      user: process.env.email,
-      pass: process.env.devpassword
+      user: process.env.rcms_email_id,
+      pass: process.env.rcms_email_pass
     }
   })
 

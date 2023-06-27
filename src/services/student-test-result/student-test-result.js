@@ -54,7 +54,7 @@ export const studentTestResult = (app) => {
         validate.form(studentTestResultSchema, { abortEarly: false }),
         fetchStudent(),
         fetchTests(),
-        //fetchGrade(),
+        fetchGrade(),
         schemaHooks.validateData(studentTestResultDataValidator),
         schemaHooks.resolveData(studentTestResultDataResolver)
       ],
